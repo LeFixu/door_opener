@@ -1,0 +1,54 @@
+<section class="control-panel" aria-labelledby="control-title">
+  <div class="panel-heading">
+    <div>
+      <p class="panel-kicker">Command center</p>
+      <h2 id="control-title">Set door state</h2>
+    </div>
+    <span class="status-dot" aria-hidden="true"></span>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label for="door-id">Door ID</label>
+    <input
+      id="door-id"
+      type="text"
+      formControlName="id"
+      placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      autocomplete="off"
+      spellcheck="false"
+      aria-describedby="door-id-hint door-id-error"
+    />
+    <p id="door-id-hint" class="field-hint">Enter the UUID of the registered door.</p>
+    @if (form.controls.id.invalid && form.controls.id.touched) {
+      <p id="door-id-error" class="field-error">Enter a valid door UUID.</p>
+    }
+
+    <fieldset>
+      <legend>Desired state</legend>
+      <div class="state-options">
+        <label class="state-option" [class.selected]="form.controls.open.value">
+          <input type="radio" formControlName="open" [value]="true" />
+          <span>Open</span>
+        </label>
+        <label class="state-option" [class.selected]="!form.controls.open.value">
+          <input type="radio" formControlName="open" [value]="false" />
+          <span>Closed</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <button type="submit" [disabled]="isSubmitting()">
+      @if (isSubmitting()) {
+        Updating door...
+      } @else {
+        Update door
+      }
+    </button>
+
+    @if (feedback(); as status) {
+      <p class="feedback" [class.success]="status.type === 'success'" [class.error]="status.type === 'error'" role="status">
+        {{ status.message }}
+      </p>
+    }
+  </form>
+</section>

@@ -15,10 +15,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render the door control', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, door_opener');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Open a door remotely');
+    expect(compiled.querySelector('app-door-control')).toBeTruthy();
   });
 });

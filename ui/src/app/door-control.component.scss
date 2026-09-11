@@ -1,0 +1,149 @@
+:host {
+  display: block;
+}
+
+.control-panel {
+  max-width: 40rem;
+  padding: clamp(1.5rem, 5vw, 2.75rem);
+  border: 1px solid #d4e0da;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  box-shadow: 0 1.5rem 3rem rgb(21 61 59 / 8%);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.panel-kicker {
+  margin: 0 0 0.5rem;
+  color: #71827d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0;
+  color: #153d3b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.status-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.4rem;
+  border-radius: 50%;
+  background: #4eaa72;
+  box-shadow: 0 0 0 0.3rem #e6f3ea;
+}
+
+form {
+  display: grid;
+  gap: 0.65rem;
+}
+
+label,
+legend {
+  color: #344944;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 1rem;
+  border: 1px solid #b9cbc2;
+  border-radius: 0.25rem;
+  color: #182329;
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #153d3b;
+  box-shadow: 0 0 0 3px #dcebe4;
+}
+
+.field-hint,
+.field-error,
+.feedback {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.field-hint {
+  color: #71827d;
+}
+
+.field-error,
+.feedback.error {
+  color: #b33d32;
+}
+
+fieldset {
+  margin: 1.25rem 0 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.state-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.65rem;
+}
+
+.state-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #d4e0da;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.state-option.selected {
+  border-color: #153d3b;
+  background: #edf6f1;
+  color: #153d3b;
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 0.9rem 1.2rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: #c65d36;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: #a94c2d;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.feedback.success {
+  color: #287349;
+}
