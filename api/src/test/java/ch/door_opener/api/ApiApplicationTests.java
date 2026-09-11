@@ -3,6 +3,8 @@ package ch.door_opener.api;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 
 import java.util.UUID;
 
@@ -36,6 +38,8 @@ class ApiApplicationTests {
 		UUID doorId = UUID.randomUUID();
 
 		mockMvc.perform(put("/door")
+				.with(user("test-user"))
+				.with(csrf())
 				.contentType(APPLICATION_JSON)
 				.content("{\"id\":\"" + doorId + "\",\"open\":true}"))
 			.andExpect(status().isOk());
