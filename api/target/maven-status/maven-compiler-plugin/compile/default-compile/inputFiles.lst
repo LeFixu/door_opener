@@ -1,0 +1,6 @@
+/home/felix/dev/door_opener/api/src/main/java/ch/door_opener/api/ApiApplication.java
+/home/felix/dev/door_opener/api/src/main/java/ch/door_opener/api/config/OpenApiConfig.java
+/home/felix/dev/door_opener/api/src/main/java/ch/door_opener/api/controllers/DoorController.java
+/home/felix/dev/door_opener/api/src/main/java/ch/door_opener/api/models/Door.java
+/home/felix/dev/door_opener/api/src/main/java/ch/door_opener/api/repositories/DoorRepository.java
+/home/felix/dev/door_opener/api/src/main/java/ch/door_opener/api/services/DoorService.java
