@@ -33,3 +33,5 @@ replay_pid*
 .env
 
 target/**
+
+door_opener.db
