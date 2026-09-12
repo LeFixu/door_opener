@@ -15,11 +15,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render the door control', async () => {
+  it('should prompt anonymous users to log in', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Open a door remotely');
-    expect(compiled.querySelector('app-door-control')).toBeTruthy();
+    expect(compiled.querySelector('.login-prompt')?.textContent).toContain('Log in to control a registered door.');
   });
 });

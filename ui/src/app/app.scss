@@ -18,6 +18,31 @@
   margin-bottom: 2.5rem;
 }
 
+.header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.session-button {
+  flex: 0 0 auto;
+  margin-top: 0.25rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #153d3b;
+  border-radius: 0.35rem;
+  color: #153d3b;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.session-button:hover {
+  color: #fff;
+  background: #153d3b;
+}
+
 .eyebrow {
   margin: 0 0 1rem;
   color: #c65d36;
@@ -45,8 +70,21 @@ h1 {
   line-height: 1.6;
 }
 
+.login-prompt {
+  color: #526461;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 40rem) {
   .app-shell {
     width: min(100% - 2.5rem, 32rem);
+  }
+
+  .header-row {
+    display: block;
+  }
+
+  .session-button {
+    margin-top: 1.5rem;
   }
 }

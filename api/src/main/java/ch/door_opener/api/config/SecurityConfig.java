@@ -6,6 +6,8 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -16,9 +18,14 @@ public class SecurityConfig {
 			HttpSecurity http,
 			ObjectProvider<ClientRegistrationRepository> clientRegistrations,
 			@Value("${app.oauth2.success-url:/}") String successUrl) throws Exception {
+		CookieCsrfTokenRepository csrfRepository =
+            CookieCsrfTokenRepository.withHttpOnlyFalse();
+
 		http
+			.csrf(csrf -> csrf
+				.csrfTokenRepository(csrfRepository))
 			.authorizeHttpRequests(authorize -> authorize
-				.requestMatchers("/", "/error", "/login/**", "/oauth2/**").permitAll()
+				.requestMatchers("/", "/auth/me", "/error", "/login/**", "/oauth2/**").permitAll()
 				.anyRequest().authenticated())
 			.logout(logout -> logout.logoutSuccessUrl("/"));
 
