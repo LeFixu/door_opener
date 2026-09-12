@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
-import { catchError, of, tap } from 'rxjs';
+import { catchError, of, switchMap, tap } from 'rxjs';
 
 export interface AuthUser {
   authenticated: boolean;
@@ -17,7 +17,11 @@ export class AuthService {
   loadUser(): void {
     this.http.get<AuthUser>('/auth/me').pipe(
       catchError(() => of({ authenticated: false, name: null, email: null })),
-    ).subscribe((user) => this.user.set(user));
+      tap((user) => this.user.set(user)),
+      switchMap((user) => user.authenticated
+        ? this.http.get('/xsrf').pipe(catchError(() => of(null)))
+        : of(null)),
+    ).subscribe();
   }
 
   login(): void {

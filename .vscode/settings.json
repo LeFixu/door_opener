@@ -1,0 +1,6 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "./mvnw": true,
+        "npm run build": true
+    }
+}

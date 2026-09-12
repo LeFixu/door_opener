@@ -23,9 +23,10 @@ public class SecurityConfig {
 
 		http
 			.csrf(csrf -> csrf
-				.csrfTokenRepository(csrfRepository))
+				.csrfTokenRepository(csrfRepository)
+				.csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))
 			.authorizeHttpRequests(authorize -> authorize
-				.requestMatchers("/", "/auth/me", "/error", "/login/**", "/oauth2/**").permitAll()
+				.requestMatchers("/", "/auth/me", "/xsrf", "/error", "/login/**", "/oauth2/**").permitAll()
 				.anyRequest().authenticated())
 			.logout(logout -> logout.logoutSuccessUrl("/"));
 
