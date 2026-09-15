@@ -16,9 +16,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import ch.door_opener.api.models.Door;
+import ch.door_opener.api.messaging.DoorEventPublisher;
 import ch.door_opener.api.repositories.DoorRepository;
+
+import static org.mockito.ArgumentMatchers.argThat;
+import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -30,6 +35,9 @@ class ApiApplicationTests {
 
 	@Autowired
 	private DoorRepository doorRepository;
+
+	@MockitoBean
+	private DoorEventPublisher doorEventPublisher;
 
 	@Test
 	void contextLoads() {
@@ -56,6 +64,8 @@ class ApiApplicationTests {
 
 		Door door = doorRepository.findById(doorId).orElseThrow();
 		org.junit.jupiter.api.Assertions.assertTrue(door.isOpen());
+		verify(doorEventPublisher).publish(argThat(event ->
+			event.doorId().equals(doorId) && event.open()));
 	}
 
 }
