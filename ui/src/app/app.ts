@@ -1,9 +1,9 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, inject, PLATFORM_ID } from '@angular/core';
-import { DoorControlComponent } from './door-control.component';
-import { AuthService } from './auth.service';
-import { I18nService } from './i18n.service';
-import { TranslatePipe } from './translate.pipe';
+import { AuthService } from './core/auth/auth.service';
+import { I18nService } from './core/i18n/i18n.service';
+import { TranslatePipe } from './core/i18n/translate.pipe';
+import { DoorControlComponent } from './features/door-control/door-control.component';
 
 @Component({
   imports: [DoorControlComponent, TranslatePipe],

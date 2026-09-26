@@ -1,8 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { afterNextRender, inject, Injectable, signal } from '@angular/core';
-import english from './i18n/en.json';
-import german from './i18n/de.json';
-import french from './i18n/fr.json';
+import english from './locales/en.json';
+import german from './locales/de.json';
+import french from './locales/fr.json';
 
 type Locale = 'en' | 'de' | 'fr';
 
