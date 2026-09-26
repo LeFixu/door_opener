@@ -2,19 +2,19 @@ import { Component, inject, signal } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { DoorApiService } from './door-api.service';
+import { TranslatePipe } from './translate.pipe';
 
 @Component({
   selector: 'app-door-control',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TranslatePipe],
   templateUrl: './door-control.component.html',
   styleUrl: './door-control.component.scss',
 })
 export class DoorControlComponent {
   private readonly formBuilder = inject(NonNullableFormBuilder);
   private readonly doorApi = inject(DoorApiService);
-
   protected readonly isSubmitting = signal(false);
-  protected readonly feedback = signal<{ type: 'success' | 'error'; message: string } | null>(null);
+  protected readonly feedback = signal<{ type: 'success' | 'error'; message: 'updateSuccess' | 'updateError' } | null>(null);
 
   protected readonly form = this.formBuilder.group({
     id: ['', [Validators.required, Validators.pattern(
@@ -34,8 +34,8 @@ export class DoorControlComponent {
     this.doorApi.updateDoor(this.form.getRawValue())
       .pipe(finalize(() => this.isSubmitting.set(false)))
       .subscribe({
-        next: () => this.feedback.set({ type: 'success', message: 'Door state updated.' }),
-        error: () => this.feedback.set({ type: 'error', message: 'The door could not be updated. Check the connection and try again.' }),
+        next: () => this.feedback.set({ type: 'success', message: 'updateSuccess' }),
+        error: () => this.feedback.set({ type: 'error', message: 'updateError' }),
       });
   }
 }

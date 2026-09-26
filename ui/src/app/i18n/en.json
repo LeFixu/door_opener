@@ -1,0 +1,22 @@
+{
+  "documentTitle": "Remote door access control",
+  "language": "Language",
+  "eyebrow": "Door access control",
+  "pageTitle": "Open a door remotely",
+  "logOut": "Log out",
+  "logInWithGoogle": "Log in with Google",
+  "intro": "Send a secure state update to a registered door.",
+  "loginPrompt": "Log in to control a registered door.",
+  "commandCenter": "Command center",
+  "setDoorState": "Set door state",
+  "doorId": "Door ID",
+  "doorIdHint": "Enter the UUID of the registered door.",
+  "doorIdError": "Enter a valid door UUID.",
+  "desiredState": "Desired state",
+  "open": "Open",
+  "closed": "Closed",
+  "updatingDoor": "Updating door...",
+  "updateDoor": "Update door",
+  "updateSuccess": "Door state updated.",
+  "updateError": "The door could not be updated. Check the connection and try again."
+}

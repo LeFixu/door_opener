@@ -2,25 +2,33 @@
   <div class="app-header">
     <div class="header-row">
       <div>
-        <p class="eyebrow">Door access control</p>
-        <h1>Open a door remotely</h1>
+        <p class="eyebrow">{{ 'eyebrow' | translate }}</p>
+        <h1>{{ 'pageTitle' | translate }}</h1>
       </div>
-      @if (auth.user(); as user) {
-        @if (user.authenticated) {
-          <button class="session-button" type="button" (click)="auth.logout()">Log out</button>
-        } @else {
-          <button class="session-button" type="button" (click)="auth.login()">Log in with Google</button>
+      <div class="header-actions">
+        <label class="visually-hidden" for="language-select">{{ 'language' | translate }}</label>
+        <select id="language-select" class="language-select" [value]="i18n.locale()" (change)="changeLocale($event)">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+        </select>
+        @if (auth.user(); as user) {
+          @if (user.authenticated) {
+            <button class="session-button" type="button" (click)="auth.logout()">{{ 'logOut' | translate }}</button>
+          } @else {
+            <button class="session-button" type="button" (click)="auth.login()">{{ 'logInWithGoogle' | translate }}</button>
+          }
         }
-      }
+      </div>
     </div>
-    <p class="intro">Send a secure state update to a registered door.</p>
+    <p class="intro">{{ 'intro' | translate }}</p>
   </div>
 
   @if (auth.user(); as user) {
     @if (user.authenticated) {
       <app-door-control></app-door-control>
     } @else {
-      <p class="login-prompt">Log in to control a registered door.</p>
+      <p class="login-prompt">{{ 'loginPrompt' | translate }}</p>
     }
   }
 </main>
