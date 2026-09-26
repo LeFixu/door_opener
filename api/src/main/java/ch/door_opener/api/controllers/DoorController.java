@@ -5,10 +5,12 @@ import java.util.UUID;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 import ch.door_opener.api.services.DoorService;
 
 @RestController
+@SecurityRequirement(name = "csrfToken")
 public class DoorController {
 
 	private final DoorService doorService;

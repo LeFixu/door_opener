@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Attach to API",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": 5005
+    },
+    {
+      "type": "java",
+      "name": "Run API (dev)",
+      "request": "launch",
+      "mainClass": "ch.door_opener.api.ApiApplication",
+      "projectName": "api",
+      "cwd": "${workspaceFolder}/api",
+      "vmArgs": "-Dspring.profiles.active=dev",
+      "envFile": "${workspaceFolder}/api/.env"
+    }
+  ]
+}

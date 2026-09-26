@@ -26,7 +26,7 @@ public class SecurityConfig {
 				.csrfTokenRepository(csrfRepository)
 				.csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler()))
 			.authorizeHttpRequests(authorize -> authorize
-				.requestMatchers("/", "/auth/me", "/xsrf", "/error", "/login/**", "/oauth2/**").permitAll()
+				.requestMatchers("/", "/auth/me", "/csrf", "/error", "/login/**", "/oauth2/**").permitAll()
 				.anyRequest().authenticated())
 			.logout(logout -> logout.logoutSuccessUrl("/"));
 
