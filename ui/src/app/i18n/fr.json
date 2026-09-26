@@ -1,0 +1,22 @@
+{
+  "documentTitle": "Contrôle d'accès à distance",
+  "language": "Langue",
+  "eyebrow": "Contrôle d'accès",
+  "pageTitle": "Ouvrir une porte à distance",
+  "logOut": "Se déconnecter",
+  "logInWithGoogle": "Se connecter avec Google",
+  "intro": "Envoyez une mise à jour sécurisée de l'état à une porte enregistrée.",
+  "loginPrompt": "Connectez-vous pour contrôler une porte enregistrée.",
+  "commandCenter": "Centre de contrôle",
+  "setDoorState": "Définir l'état de la porte",
+  "doorId": "Identifiant de la porte",
+  "doorIdHint": "Saisissez l'UUID de la porte enregistrée.",
+  "doorIdError": "Saisissez un UUID de porte valide.",
+  "desiredState": "État souhaité",
+  "open": "Ouverte",
+  "closed": "Fermée",
+  "updatingDoor": "Mise à jour de la porte...",
+  "updateDoor": "Mettre à jour la porte",
+  "updateSuccess": "État de la porte mis à jour.",
+  "updateError": "Impossible de mettre à jour la porte. Vérifiez la connexion et réessayez."
+}

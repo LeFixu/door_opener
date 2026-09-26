@@ -1,0 +1,22 @@
+{
+  "documentTitle": "Fernsteuerung des Türzugangs",
+  "language": "Sprache",
+  "eyebrow": "Türzugangskontrolle",
+  "pageTitle": "Eine Tür aus der Ferne öffnen",
+  "logOut": "Abmelden",
+  "logInWithGoogle": "Mit Google anmelden",
+  "intro": "Senden Sie eine sichere Zustandsänderung an eine registrierte Tür.",
+  "loginPrompt": "Melden Sie sich an, um eine registrierte Tür zu steuern.",
+  "commandCenter": "Steuerzentrale",
+  "setDoorState": "Türzustand festlegen",
+  "doorId": "Tür-ID",
+  "doorIdHint": "Geben Sie die UUID der registrierten Tür ein.",
+  "doorIdError": "Geben Sie eine gültige Tür-UUID ein.",
+  "desiredState": "Gewünschter Zustand",
+  "open": "Offen",
+  "closed": "Geschlossen",
+  "updatingDoor": "Tür wird aktualisiert...",
+  "updateDoor": "Tür aktualisieren",
+  "updateSuccess": "Türzustand aktualisiert.",
+  "updateError": "Die Tür konnte nicht aktualisiert werden. Prüfen Sie die Verbindung und versuchen Sie es erneut."
+}
